@@ -1,0 +1,22 @@
+<p-table [value]="diciplinas">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Descricao</th>
+          <th>Status</th>
+          <th>DataCriacao</th>
+          <th>DataAlteracao</th>
+          <th>UsuarioCriacao</th>
+          <th>UsuarioAlteracao</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-car>
+      <tr>
+          <td>{{car.descricao}}</td>
+          <td>{{car.status}}</td>
+          <td>{{car.datacriacao}}</td>
+          <td>{{car.dataalteracao}}</td>
+          <td>{{car.usuariocriacao}}</td>
+          <td>{{car.usuarioalteracao}}</td>
+      </tr>
+  </ng-template>
+</p-table>

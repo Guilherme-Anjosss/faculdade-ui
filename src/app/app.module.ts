@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengModule } from './primeng.module';
-import { FaculdadeModule } from './pages/faculdade/faculdade.module';
+import { DiciplinaModule } from './pages/diciplina/diciplina.module';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { FaculdadeModule } from './pages/faculdade/faculdade.module';
     BrowserAnimationsModule,
     PrimengModule,
     AppRoutingModule,
-    FaculdadeModule
+    DiciplinaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
