@@ -4,7 +4,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengModule } from './primeng.module';
-import { DiciplinaModule } from './pages/diciplina/diciplina.module';
+import { DisciplinaModule } from './pages/disciplina/disciplina.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,10 +14,11 @@ import { DiciplinaModule } from './pages/diciplina/diciplina.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     PrimengModule,
     AppRoutingModule,
-    DiciplinaModule
+    DisciplinaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
