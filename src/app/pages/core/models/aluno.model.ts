@@ -7,4 +7,5 @@ export class Aluno {
     usualteracao?: String;
     cpf?: string;
     nome?: string;
+  id: number;
 }
