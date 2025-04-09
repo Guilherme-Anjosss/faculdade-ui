@@ -1,15 +1,17 @@
 <p-card header="Lista de Alunos">
-  <div class="mb-3">
+  <div class="mb-3 flex justify-content-between">
+    <h2 class="m-0">Alunos</h2>
     <button
       pButton
-      type="button"
-      class="p-button p-button-raised"
       icon="pi pi-plus"
       label="Novo Aluno"
-      routerLink="/alunos/cadastro"
+      class="p-button-success"
+      (click)="abrirDialog()"
     ></button>
   </div>
-  <p-table [value]="alunos" [paginator]="true" [rows]="15">
+
+  <!-- Tabela -->
+  <p-table [value]="alunos">
     <ng-template pTemplate="header">
       <tr>
         <th>Nome</th>
@@ -26,3 +28,55 @@
     </ng-template>
   </p-table>
 </p-card>
+
+<p-dialog
+  header="Novo Aluno"
+  [(visible)]="alunoDialog"
+  [modal]="true"
+  [closable]="true"
+  [dismissableMask]="true"
+  [style]="{ width: '400px' }"
+>
+  <form (ngSubmit)="salvarAluno()">
+    <div class="field">
+      <label>Nome</label>
+      <input
+        pInputText
+        [(ngModel)]="novoAluno.nome"
+        name="nome"
+        required
+        class="w-full"
+      />
+    </div>
+    <div class="field">
+      <label>Idade</label>
+      <input
+        pInputText
+        [(ngModel)]="novoAluno.idade"
+        name="idade"
+        type="number"
+        required
+        class="w-full"
+      />
+    </div>
+    <div class="field">
+      <label>Curso</label>
+      <input
+        pInputText
+        [(ngModel)]="novoAluno.curso"
+        name="curso"
+        required
+        class="w-full"
+      />
+    </div>
+
+    <div class="mt-3 text-right">
+      <button
+        pButton
+        type="submit"
+        label="Salvar"
+        class="p-button-primary"
+      ></button>
+    </div>
+  </form>
+</p-dialog>
