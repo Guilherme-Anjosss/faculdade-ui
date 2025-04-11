@@ -5,7 +5,7 @@
       pButton
       icon="pi pi-plus"
       label="Nova Disciplina"
-      class="p-button font-bold p-button-verde"
+    class="p-button font-bold p-button-verde"
       (click)="abrirDialog()"
     ></button>
   </div>
@@ -36,6 +36,8 @@
   header="Nova Disciplina"
   [(visible)]="disciplinaDialog"
   [modal]="true"
+  [closable]="true"
+  [dismissableMask]="true"
   [style]="{ width: '40vw' }"
 >
   <form (ngSubmit)="salvarDisciplina()" #form="ngForm">
@@ -67,8 +69,7 @@
           pButton
           type="submit"
           label="Salvar"
-          class="font-bold text-white"
-          style="background-color: #4B5320; border-color: #4B5320;"
+          class="p-button font-bold p-button-verde"
         ></button>
       </div>
     </div>
