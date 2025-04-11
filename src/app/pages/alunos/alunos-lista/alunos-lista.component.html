@@ -1,17 +1,17 @@
-<p-card header="Lista de Alunos">
+<p-card header="Alunos">
   <!-- Titulo/Botão-->
   <div class="flex justify-content-start mb-3 mt-2">
     <button
     pButton
     icon="pi pi-plus"
     label="Novo Aluno"
-    class="p-button-success"
+    class="p-button font-bold p-button-verde"
     (click)="abrirDialog()"
   ></button>
   </div>
 
   <!-- Tabela -->
-  <p-table [value]="alunos">
+  <p-table [value]="alunos" [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
       <tr>
         <th>Nome</th>

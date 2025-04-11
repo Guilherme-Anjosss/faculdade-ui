@@ -1,13 +1,12 @@
 <p-card header="Lista de Disciplinas">
-  <!-- Título + botão alinhado -->
-  <h2 class="m-0">Disciplinas</h2>
+  <!-- Botão Novo -->
   <div class="flex justify-content-start mt-2 mb-3">
     <button
       pButton
       icon="pi pi-plus"
-      label="Novo"
-      class="p-button-success"
-      routerLink="novo"
+      label="Nova Disciplina"
+      class="p-button font-bold p-button-verde"
+      (click)="abrirDialog()"
     ></button>
   </div>
 
@@ -15,12 +14,10 @@
   <p-table [value]="disciplinas" styleClass="p-datatable-striped">
     <ng-template pTemplate="header">
       <tr>
-        <th width="300px">Descrição</th>
-        <th width="100px">Status</th>
+        <th>Descrição</th>
+        <th>Status</th>
         <th>Data Criação</th>
         <th>Usuário Criação</th>
-        <th>Data Alteração</th>
-        <th>Usuário Alteração</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-disc>
@@ -29,9 +26,51 @@
         <td>{{ disc.status ? 'Ativo' : 'Inativo' }}</td>
         <td>{{ disc.datacriacao | date: 'dd/MM/yyyy' }}</td>
         <td>{{ disc.usuariocriacao }}</td>
-        <td>{{ disc.dataalteracao | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ disc.usuarioalteracao }}</td>
       </tr>
     </ng-template>
   </p-table>
 </p-card>
+
+<!-- Diálogo de Cadastro -->
+<p-dialog
+  header="Nova Disciplina"
+  [(visible)]="disciplinaDialog"
+  [modal]="true"
+  [style]="{ width: '40vw' }"
+>
+  <form (ngSubmit)="salvarDisciplina()" #form="ngForm">
+    <div class="grid">
+      <span class="col-12 mb-2">Descrição</span>
+      <div class="col-12">
+        <input
+          pInputText
+          [(ngModel)]="novaDisciplina.descricao"
+          name="descricao"
+          required
+          class="w-full"
+        />
+      </div>
+
+      <span class="col-12 mb-2 mt-3">Status</span>
+      <div class="col-12">
+        <p-dropdown
+          [options]="statusOptions"
+          [(ngModel)]="novaDisciplina.status"
+          name="status"
+          placeholder="Selecione"
+          class="w-full"
+        ></p-dropdown>
+      </div>
+
+      <div class="col-12 mt-4 text-right">
+        <button
+          pButton
+          type="submit"
+          label="Salvar"
+          class="font-bold text-white"
+          style="background-color: #4B5320; border-color: #4B5320;"
+        ></button>
+      </div>
+    </div>
+  </form>
+</p-dialog>

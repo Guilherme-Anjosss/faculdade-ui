@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Disciplina } from '../../core/models/disciplina.model';
+import { Router } from '@angular/router';
 import { DisciplinaService } from '../disciplina.service';
+import { Disciplina } from '../../core/models/disciplina.model';
 
 @Component({
   selector: 'app-disciplina-cadastro',
-  templateUrl: './disciplina-cadastro.component.html',
-  styleUrls: ['./disciplina-cadastro.component.css']
+  templateUrl: './disciplina-cadastro.component.html'
 })
-export class DisciplinaCadastroComponent implements OnInit {
-   disciplina = new Disciplina();
+export class DisciplinaCadastroComponent {
+  disciplina = new Disciplina();
+
+  statusOptions = [
+    { label: 'Ativo', value: true },
+    { label: 'Inativo', value: false }
+  ];
+
   constructor(
-    private disciplinaService: DisciplinaService
-  ) { }
+    private disciplinaService: DisciplinaService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
-  }
-
-  salvar(form: NgForm){
-    console.log(form);
-  }
-
-  cadastroDisciplina(form: NgForm){
-    console.log(this.disciplina);
-    // this.disciplinaService.adicionar(this.disciplina).then((obj) => {
-      
-    // })
+  cadastroDisciplina(form: NgForm) {
+    if (form.valid) {
+      this.disciplinaService.adicionar(this.disciplina).then(() => {
+        alert('Disciplina cadastrada com sucesso!');
+        this.router.navigate(['/disciplinas']);
+      });
+      form.resetForm(new Disciplina());
+    } else {
+      alert('Preencha todos os campos corretamente!');
+    }
   }
 }

@@ -1,1 +1,47 @@
-<p>main-layout works!</p>
+<div class="flex min-h-screen surface-ground text-white">
+    <!-- Sidebar estilizada -->
+    <div class="w-18rem surface-section p-4 shadow-2 flex flex-column justify-between"
+    style="font-family: var(--font-family);">
+   
+      <!-- Logo -->
+      <div class="text-center mb-5">
+        <img src="assets/anhangueralogo.png" alt="Logo" width="250" class="mb-2" />
+        <!-- <h2 class="m-0 text-primary font-bold text-lg">Faculdade UI</h2> -->
+      </div>
+  
+      <!-- Navegação -->
+      <ul class="list-none p-0 m-0">
+        <li class="mb-3">
+          <a
+          routerLink="/alunos"
+          routerLinkActive="active-link"
+          class="sidebar-link flex align-items-center gap-2 p-2 text-white hover:surface-hover"
+        >
+          <i class="pi pi-users text-lg"></i>
+          <span>Alunos</span>
+        </a>
+        </li>
+        <li>
+          <a
+          routerLink="/disciplinas"
+          routerLinkActive="active-link"
+          class="sidebar-link flex align-items-center gap-2 p-2 text-white hover:surface-hover"
+          >
+            <i class="pi pi-book text-lg"></i>
+            <span>Disciplinas</span>
+          </a>
+        </li>
+      </ul>
+  
+      <!-- Rodapé opcional -->
+      <div class="mt-5 text-center text-sm text-color-secondary">
+        <span>&copy; Billascopy2025</span>
+      </div>
+    </div>
+  
+    <!-- Conteúdo principal -->
+    <div class="flex-1 p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

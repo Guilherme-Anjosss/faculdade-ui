@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengModule } from './primeng.module';
-import { DisciplinaModule } from './pages/disciplina/disciplina.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
@@ -19,8 +18,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
     HttpClientModule,
     BrowserAnimationsModule,
     PrimengModule,
-    AppRoutingModule,
-    DisciplinaModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
 // const routes: Routes = [
 // {
@@ -9,17 +10,26 @@ import { RouterModule, Routes } from '@angular/router';
 // }
 // ];
 
+
 const routes: Routes = [
   {
-    path: 'disciplinas',
-    loadChildren: () => import('./pages/disciplina/disciplina.module').then(m => m.DisciplinaModule)
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'alunos',
+        loadChildren: () =>
+          import('./pages/alunos/alunos.module').then(m => m.AlunosModule),
+      },
+      {
+        path: 'disciplinas',
+        loadChildren: () =>
+          import('./pages/disciplina/disciplina.module').then(m => m.DisciplinaModule),
+      },
+      { path: '', redirectTo: 'alunos', pathMatch: 'full' },
+    ],
   },
-  {
-    path: 'alunos',
-    loadChildren: () => import('./pages/alunos/alunos.module').then(m => m.AlunosModule)
-  },
-  { path: '', redirectTo: 'disciplinas', pathMatch: 'full' },
-  { path: '**', redirectTo: 'disciplinas' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

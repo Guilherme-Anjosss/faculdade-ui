@@ -6,6 +6,7 @@ export class Disciplina {
     dataalteracao?: Date;
     usucriacao?: string;
     usualteracao?: String;
+  id: number | undefined;
 }
 
 
