@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { PrimengModule } from './primeng.module';
 import { DisciplinaModule } from './pages/disciplina/disciplina.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [	
+    AppComponent, 
+    MainLayoutComponent
+   ],
   imports: [
     BrowserModule,
     HttpClientModule,
